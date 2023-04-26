@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+​
+<head>
+   <meta charset="utf-8">
+   <title>Where To?</title>
+   <link href="https://vjs.zencdn.net/7.15.4/video-js.css" rel="stylesheet" />
+   <script src='https://vjs.zencdn.net/7.15.4/video.js'></script>
+   <script src="https://cdn.jsdelivr.net/npm/hls.js@0.12.4"></script>
+   <script src="https://d1ktbyo67sh8fw.cloudfront.net/js/theta.umd.min.js"></script>
+   <script src="https://d1ktbyo67sh8fw.cloudfront.net/js/theta-hls-plugin.umd.min.js"></script>
+   <script src="https://d1ktbyo67sh8fw.cloudfront.net/js/videojs-theta-plugin.min.js"></script>
+</head>
+​
+<body>
+   play video boii {{.}}
+   <video id="my-player" controls></video>
+</body>
+<script>
+   const optionalHlsOpts = null;
+const player = window.player = videojs('player-container', {
+  techOrder: ["theta_hlsjs", "html5"],
+  sources: [{
+    src: "https://media.thetavideoapi.com/video_jmw0pcsp7b7n23jwts1pk94651/master.m3u8",
+    type: "application/vnd.apple.mpegurl",
+    label: "auto"
+  }],
+  theta_hlsjs: {
+    videoId: "video_jmw0pcsp7b7n23jwts1pk94651",
+    userId: "YOUR_AUTHED_USER_ID",
+    walletUrl: "wss://api-wallet-service.thetatoken.org/theta/ws",
+    onWalletAccessToken: null,
+    hlsOpts: null
+  }
+});
+</script>
+​
+</html>
